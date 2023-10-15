@@ -31,8 +31,8 @@ class ListProducts extends Component implements HasForms, HasTable
                     ->form([TextInput::make('name')->required()])
                     ->extraModalFooterActions([
                         \Filament\Tables\Actions\Action::make('generate')
-                            ->action(function (Set $set) {
-                                $set('name', 'Default name');
+                            ->action(function () {
+                                $this->mountedTableActionsData[0]['name'] = 'New generated content';
                             }),
                     ]),
             ]);
